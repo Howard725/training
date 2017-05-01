@@ -24,6 +24,24 @@ public class TestShortestPathSearcher {
         distances.put("S6", "S7", 1567);
         distances.put("S7", "S8", 1897);
 
+        distances.put("S1", "S0", 800);
+        distances.put("S2", "S1", 2168);
+        distances.put("S3", "S2", 2098);
+        distances.put("S4", "S3", 2165);
+        distances.put("S5", "S4", 1500);
+        distances.put("S6", "S5", 1345);
+        distances.put("S7", "S6", 1567);
+        distances.put("S8", "S7", 1897);
+
+        distances.put("S0", "S1", 800);
+        distances.put("S1", "S2", 2168);
+        distances.put("S2", "S3", 2098);
+        distances.put("S3", "S4", 2165);
+        distances.put("S4", "S5", 1500);
+        distances.put("S5", "S6", 1345);
+        distances.put("S6", "S7", 1567);
+        distances.put("S7", "S8", 1897);
+
     }
 
     @Test
