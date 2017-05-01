@@ -2,9 +2,7 @@ package cn.edu.xxx.howard.traning;
 
 import com.google.common.collect.Table;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by wanghoward on 17/4/30.
@@ -20,8 +18,9 @@ public class DijkstraSearcher implements ShortestPathSearcher {
 
         initRecords(distances.rowKeySet());
 
-        itemsMap.get(start).distance = 0;
-        itemsQueue.add(itemsMap.get(start));
+        DijkstraItem startItem = itemsMap.get(start);
+        startItem.distance = 0;
+        itemsQueue.add(startItem);
 
         for (; ; ) {
             DijkstraItem currentItem = null;
@@ -31,6 +30,7 @@ public class DijkstraSearcher implements ShortestPathSearcher {
             if (null == currentItem) {
                 break;
             }
+            currentItem.known = true;
 
             for (String neighbor : distances.row(currentItem.name).keySet()) {
                 DijkstraItem neighborItem = itemsMap.get(neighbor);
@@ -48,6 +48,11 @@ public class DijkstraSearcher implements ShortestPathSearcher {
     }
 
     private void initRecords(Collection<String> points) {
+
+        itemsMap = null;
+        itemsQueue = null;
+        itemsMap = new HashMap<String, DijkstraItem>();
+        itemsQueue = new PriorityQueue<DijkstraItem>();
 
         for (String point : points) {
             DijkstraItem item = new DijkstraItem(point);
