@@ -20,6 +20,7 @@ public class DijkstraSearcher implements ShortestPathSearcher {
 
         DijkstraItem startItem = itemsMap.get(start);
         startItem.distance = 0;
+        itemsQueue.remove(startItem);
         itemsQueue.add(startItem);
 
         for (; ; ) {
@@ -38,6 +39,7 @@ public class DijkstraSearcher implements ShortestPathSearcher {
                     int newDistance = distances.get(currentItem.name, neighbor) + currentItem.distance;
                     if (newDistance < neighborItem.distance) {
                         neighborItem.distance = newDistance;
+                        itemsQueue.remove(neighborItem);
                         itemsQueue.add(neighborItem);
                     }
                 }

@@ -84,9 +84,7 @@ public class TestShortestPathSearcher {
         distances.put("S35", "S36", 1345);
         distances.put("S36", "S37", 1555);
         distances.put("S37", "S38", 1682);
-        distances.put("S37", "S39", 1682);
 
-        distances.put("S39", "S38", 1682);
         distances.put("S38", "S37", 1682);
         distances.put("S37", "S36", 1555);
         distances.put("S36", "S35", 1345);
