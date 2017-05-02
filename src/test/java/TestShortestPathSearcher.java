@@ -1,4 +1,5 @@
 import cn.edu.xxx.howard.traning.DijkstraSearcher;
+import cn.edu.xxx.howard.traning.FloydSearcher;
 import cn.edu.xxx.howard.traning.ShortestPathSearcher;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
@@ -99,9 +100,18 @@ public class TestShortestPathSearcher {
     @Test
     public void testDijkstraSearcher() {
         ShortestPathSearcher searcher = new DijkstraSearcher();
-//        Assert.assertEquals(5248, searcher.getShortestDistance(distances, "S2", "S15"));
+        Assert.assertEquals(5248, searcher.getShortestDistance(distances, "S2", "S15"));
         Assert.assertEquals(9264, searcher.getShortestDistance(distances, "S30", "S15"));
-//        Assert.assertEquals( 8154, searcher.getShortestDistance(distances, "S31", "S15"));
+        Assert.assertEquals(8154, searcher.getShortestDistance(distances, "S31", "S15"));
+
+    }
+
+    @Test
+    public void testFloydSearcher() {
+        ShortestPathSearcher searcher = new FloydSearcher();
+        Assert.assertEquals(5248, searcher.getShortestDistance(distances, "S2", "S15"));
+        Assert.assertEquals(9264, searcher.getShortestDistance(distances, "S30", "S15"));
+        Assert.assertEquals(8154, searcher.getShortestDistance(distances, "S31", "S15"));
 
     }
 
