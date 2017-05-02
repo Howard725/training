@@ -99,6 +99,7 @@ public class TestShortestPathSearcher {
 
     @Test
     public void testDijkstraSearcher() {
+        System.out.println("DijkstraSearcher:");
         ShortestPathSearcher searcher = new DijkstraSearcher();
         Assert.assertEquals(5248, searcher.getShortestDistance(distances, "S2", "S15"));
         Assert.assertEquals(9264, searcher.getShortestDistance(distances, "S30", "S15"));
@@ -108,6 +109,7 @@ public class TestShortestPathSearcher {
 
     @Test
     public void testFloydSearcher() {
+        System.out.println("FloydSearcher:");
         ShortestPathSearcher searcher = new FloydSearcher();
         Assert.assertEquals(5248, searcher.getShortestDistance(distances, "S2", "S15"));
         Assert.assertEquals(9264, searcher.getShortestDistance(distances, "S30", "S15"));

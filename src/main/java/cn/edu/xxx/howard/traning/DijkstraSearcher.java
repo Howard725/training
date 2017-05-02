@@ -39,6 +39,7 @@ public class DijkstraSearcher implements ShortestPathSearcher {
                     int newDistance = distances.get(currentItem.name, neighbor) + currentItem.distance;
                     if (newDistance < neighborItem.distance) {
                         neighborItem.distance = newDistance;
+                        neighborItem.previous = currentItem;
                         itemsQueue.remove(neighborItem);
                         itemsQueue.add(neighborItem);
                     }
@@ -46,8 +47,24 @@ public class DijkstraSearcher implements ShortestPathSearcher {
             }
         }
 
+        System.out.println(getShortestPath(end));
         return itemsMap.get(end).distance;
     }
+
+    private String getShortestPath(String end) {
+
+        StringBuilder pathBuilder = new StringBuilder();
+        DijkstraItem item = itemsMap.get(end);
+
+        while (null != item) {
+            pathBuilder.insert(0, "->" + item.name);
+            item = item.previous;
+        }
+        pathBuilder.delete(0, 2);
+
+        return pathBuilder.toString();
+    }
+
 
     private void initRecords(Collection<String> points) {
 
