@@ -12,7 +12,8 @@ public class TestLongestIncreasingSequenceResolver {
     @Test
     public void testCase00() {
         LongestIncreasingSequenceResolver sequence = new LongestIncreasingSequenceResolver();
-        int[] input = new int[]{1, 11, 3, 13, 5, 15, 7, 27, 9};
-        Assert.assertEquals(5, sequence.getLengthOfSequence(input));
+//        int[] input = new int[]{1, 11, 3, 13, 5, 15, 7, 27, 9};
+        int[] input = new int[]{5, 6, 7, 1, 2, 8};
+        Assert.assertEquals(4, sequence.getLengthOfSequence(input));
     }
 }

@@ -14,8 +14,6 @@ public class LongestIncreasingSequenceResolver {
             for (int j = 0; j < i; j++) {
                 if (data[i] >= data[j]) {
                     lengthOfSequence[i] = max(lengthOfSequence[j] + 1, lengthOfSequence[i]);
-                } else {
-                    lengthOfSequence[i] = max(lengthOfSequence[j], lengthOfSequence[i]);
                 }
             }
         }
